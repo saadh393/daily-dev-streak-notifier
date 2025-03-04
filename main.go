@@ -193,14 +193,17 @@ func installOnStartup() {
 
 // displayReputation prints the welcome message and reputation in a fancy format.
 func displayReputation(user *User) {
+	streak := ocr()
+
 	fmt.Println("========================================")
 	fmt.Printf(" 🚀 Welcome back, %s! 🚀\n", user.Name)
 	fmt.Println("========================================")
-	fmt.Printf(" ⭐ Your current reputation: %d ⭐\n", user.Reputation)
+	fmt.Printf(" ⭐ Your current reputation: %d and streak %s ⭐\n", user.Reputation, streak)
 	fmt.Println("========================================")
 }
 
 func main() {
+
 	// Install the binary to run on every terminal startup.
 	installOnStartup()
 
