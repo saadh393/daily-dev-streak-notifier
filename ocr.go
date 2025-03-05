@@ -117,9 +117,10 @@ func extractFirstNumber(input string) string {
 	return ""
 }
 
-func ocr() string {
+func ocr(userData User) string {
 	// Step 1: Download the Image
-	imageURL := "https://api.daily.dev/devcards/v2/H9v3Y3qnlw8vO005U8it8.png?type=default&r=cik"
+	imageURL := fmt.Sprintf("https://api.daily.dev/devcards/v2/%s.png?type=default&r=cik", userData.CardId)
+
 	img, err := downloadImage(imageURL)
 	if err != nil {
 		log.Fatal("Error downloading image:", err)
@@ -133,6 +134,18 @@ func ocr() string {
 	if err != nil {
 		log.Fatal("Error converting image to buffer:", err)
 	}
+
+	// Save img buffer as file
+	// // file, err := os.Create("cropped_image.png")
+	// // if err != nil {
+	// // 	fmt.Printf("Error creating file")
+	// // }
+	// // defer file.Close()
+
+	// _, err = file.Write(imgBuffer.Bytes())
+	// if err != nil {
+	// 	log.Fatal("Error saving image file:", err)
+	// }
 
 	// Step 4: Extract text using OCR.space
 	text, err := extractTextFromImage(imgBuffer)
