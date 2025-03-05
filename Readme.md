@@ -87,7 +87,3 @@ The `dailydev` application is a self-contained executable. When run, it displays
 **Contributing:**
 
 Contributions are welcome! If you have any ideas for improving this project, please feel free to open an issue or submit a pull request.
-
-**License:**
-
-[Add your License here, e.g., MIT License]
